@@ -1,36 +1,31 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ferrucciocainero.ch – Next.js
 
-## Getting Started
+Rebuild of [ferrucciocainero.ch](https://www.ferrucciocainero.ch) (previously WordPress + BeTheme) with Next.js (App Router), TypeScript and Tailwind CSS.
 
-First, run the development server:
+## Development
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev     # http://localhost:3000
+npm run build
+npm run lint
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Structure
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+| Path | Content |
+| --- | --- |
+| `src/app/` | One route per page of the original site (`/calendario/`, `/attivita/teatro/`, `/media/foto/`, …), plus `sitemap.ts`, `robots.ts` and redirects for legacy WordPress URLs in `next.config.ts` |
+| `src/components/` | Header, navigation, footer, page title band, rows/separators, video embed, download button, event calendar |
+| `src/data/` | Site settings and menu (`site.ts`), calendar events (`events.ts`), photos and videos (`media.ts`) |
+| `public/images/` | Images downloaded from the original site |
+| `public/downloads/` | CVs, press reviews and the VeranstalterBox material |
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Updating content
 
-## Learn More
+- **Calendar:** add an entry to `src/data/events.ts`. Past dates move to the archive automatically (the page is revalidated every hour).
+- **Photos and videos:** edit `src/data/media.ts`.
 
-To learn more about Next.js, take a look at the following resources:
+### To do before going live
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- The podcast MP3s (about 50 MB each) are still served by the old WordPress media library (`mediaBaseUrl` in `src/data/site.ts`). Move them to a CDN or storage bucket before the old site is switched off.

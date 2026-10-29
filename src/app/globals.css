@@ -1,26 +1,122 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/*
+ * Design tokens taken from the original BeTheme setup of ferrucciocainero.ch.
+ * Link and menu colours are darkened slightly so they pass WCAG AA contrast.
+ */
+@theme {
+  --color-night: #1b2019;
+  --color-paper: #faf9f9;
+  --color-ink: #0f0f0f;
+  --color-cocoa: #382b21;
+  --color-brand: #1063ab;
+  --color-brand-dark: #0b4a80;
+  --color-amber: #e3aa00;
+  --color-amber-dark: #8c6400;
+  --color-menu: #6b6b6b;
+  --color-coal: #12100e;
+
+  --font-sans: var(--font-quicksand), Helvetica, Arial, sans-serif;
+  --font-display: var(--font-open-sans), Helvetica, Arial, sans-serif;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+@layer base {
+  html {
+    background-color: var(--color-night);
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  body {
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-weight: 500;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: var(--color-cocoa);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-brand);
+    outline-offset: 2px;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer components {
+  /* Rich text blocks (bio, show descriptions, …) */
+  .prose-fc {
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  .prose-fc h2 {
+    margin-bottom: 0.75rem;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.15;
+  }
+
+  .prose-fc h3 {
+    margin-bottom: 0.5rem;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.3;
+  }
+
+  .prose-fc p,
+  .prose-fc ul,
+  .prose-fc ol {
+    margin-bottom: 0.9rem;
+  }
+
+  .prose-fc ul {
+    list-style: disc;
+    padding-left: 1.25rem;
+  }
+
+  .prose-fc ol {
+    list-style: decimal;
+    padding-left: 1.25rem;
+  }
+
+  .prose-fc li + li {
+    margin-top: 0.25rem;
+  }
+
+  .prose-fc strong {
+    font-weight: 700;
+  }
+
+  .prose-fc a {
+    color: var(--color-amber-dark);
+    font-weight: 700;
+    text-decoration: underline;
+    text-decoration-color: var(--color-amber);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
+    overflow-wrap: anywhere;
+  }
+
+  .prose-fc a:hover {
+    color: var(--color-brand);
+    text-decoration-color: currentColor;
+  }
+
+  @media (min-width: 768px) {
+    .prose-fc {
+      font-size: 16px;
+    }
+
+    .prose-fc h2 {
+      font-size: 24px;
+    }
+
+    .prose-fc h3 {
+      font-size: 18px;
+    }
+  }
 }
