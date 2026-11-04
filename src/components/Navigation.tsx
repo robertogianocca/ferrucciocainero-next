@@ -23,6 +23,8 @@ export default function Navigation({ items }: { items: NavItem[] }) {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const close = () => setOpen(false);
+  // Only one desktop submenu can be open at a time (hover or keyboard focus).
+  const [openMenu, setOpenMenu] = useState<string | null>(null);
 
   return (
     <nav aria-label="Menu principale">
@@ -30,12 +32,25 @@ export default function Navigation({ items }: { items: NavItem[] }) {
       <ul className="hidden items-center lg:flex">
         {items.map((item) => {
           const active = isInSection(pathname, item);
+          const expanded = openMenu === item.href;
           return (
-            <li key={item.href} className="group relative">
+            <li
+              key={item.href}
+              className="relative"
+              onMouseEnter={() => setOpenMenu(item.href)}
+              onMouseLeave={() => setOpenMenu(null)}
+              onFocus={() => setOpenMenu(item.href)}
+              onBlur={(event) => {
+                if (!event.currentTarget.contains(event.relatedTarget)) setOpenMenu(null);
+              }}
+              onKeyDown={(event) => event.key === "Escape" && setOpenMenu(null)}
+            >
               <Link
                 href={item.href}
                 aria-current={isCurrent(pathname, item.href) ? "page" : undefined}
                 aria-haspopup={item.children ? "true" : undefined}
+                aria-expanded={item.children ? expanded : undefined}
+                onClick={() => setOpenMenu(null)}
                 className={`block px-3 py-5 font-display text-[13px] uppercase transition-colors hover:text-cocoa ${
                   active ? "text-cocoa" : "text-menu"
                 }`}
@@ -43,7 +58,11 @@ export default function Navigation({ items }: { items: NavItem[] }) {
                 {item.label}
               </Link>
               {item.children && (
-                <ul className="invisible absolute left-0 top-full min-w-[220px] translate-y-1 border-t-2 border-brand bg-white py-1 opacity-0 shadow-lg transition group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
+                <ul
+                  className={`absolute left-0 top-full min-w-[220px] border-t-2 border-brand bg-white py-1 shadow-lg transition ${
+                    expanded ? "visible translate-y-0 opacity-100" : "invisible translate-y-1 opacity-0"
+                  }`}
+                >
                   {item.children.map((child) => {
                     const current = isCurrent(pathname, child.href);
                     return (
@@ -51,6 +70,7 @@ export default function Navigation({ items }: { items: NavItem[] }) {
                         <Link
                           href={child.href}
                           aria-current={current ? "page" : undefined}
+                          onClick={() => setOpenMenu(null)}
                           className={`block px-4 py-2.5 font-display text-[13px] uppercase transition-colors hover:bg-paper hover:text-cocoa ${
                             current ? "text-cocoa" : "text-menu"
                           }`}
