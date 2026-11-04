@@ -88,14 +88,11 @@ type EventCalendarProps = {
   today: string;
 };
 
-/** Upcoming shows grouped by month, plus a collapsible archive (replaces the EventON plugin). */
+/** Upcoming shows grouped by month (replaces the EventON plugin). Past dates are not shown. */
 export default function EventCalendar({ events, today }: EventCalendarProps) {
   const upcoming = events
     .filter((event) => (event.endDate ?? event.startDate) >= today)
     .sort((a, b) => a.startDate.localeCompare(b.startDate));
-  const past = events
-    .filter((event) => (event.endDate ?? event.startDate) < today)
-    .sort((a, b) => b.startDate.localeCompare(a.startDate));
 
   return (
     <div className="space-y-10">
@@ -123,34 +120,6 @@ export default function EventCalendar({ events, today }: EventCalendarProps) {
             </section>
           );
         })
-      )}
-
-      {past.length > 0 && (
-        <details className="group border-t border-black/10 pt-6">
-          <summary className="cursor-pointer list-none font-display text-sm font-bold uppercase tracking-wide text-cocoa hover:text-brand [&::-webkit-details-marker]:hidden">
-            <span className="mr-2 inline-block transition-transform group-open:rotate-90" aria-hidden="true">
-              ▸
-            </span>
-            Archivio / Archiv – {past.length} date passate
-          </summary>
-          <div className="mt-6 space-y-8">
-            {groupBy(past, (event) => event.startDate.slice(0, 4)).map(([year, items]) => (
-              <section key={year} aria-labelledby={`year-${year}`}>
-                <h2
-                  id={`year-${year}`}
-                  className="mb-3 font-display text-lg font-bold text-menu"
-                >
-                  {year}
-                </h2>
-                <ul className="space-y-2">
-                  {items.map((event) => (
-                    <EventCard key={event.id} event={event} />
-                  ))}
-                </ul>
-              </section>
-            ))}
-          </div>
-        </details>
       )}
     </div>
   );

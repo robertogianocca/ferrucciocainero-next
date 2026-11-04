@@ -123,7 +123,7 @@ export default function PodcastPage() {
                   <a href={episode.audio}>Scarica l’audio di «{episode.title}» (MP3)</a>
                 </audio>
               </div>
-              <div className="flex justify-center md:col-span-4">
+              <div className="flex items-start justify-center md:col-span-4">
                 <Image
                   src={episode.image.src}
                   alt={episode.image.alt}
