@@ -110,5 +110,7 @@ export const events: CalendarEvent[] = [
   { id: "riservato-4", title: "Riservato", startDate: "2026-10-05", endDate: "2026-10-10" },
   { id: "leise-rieselt-es-nicht-12", title: "Leise rieselt es nicht", startDate: "2026-12-04", startTime: "20:00", endTime: "21:15", note: "Reserviert" },
   { id: "leise-rieselt-es-nicht-13", title: "Leise rieselt es nicht", startDate: "2026-12-05", startTime: "20:00", endTime: "21:15", note: "Reserviert" },
-  { id: "caineriade-4", title: "Caineriade", startDate: "2026-12-31", location: "Urwaldhaus – Wirtschaft Bären, Rehetobel" },
+  { id: "special-programm-rehetobel", title: "Special Programm", startDate: "2026-12-31", location: "Wirtschaft zum Bären, 9038 Rehetobel" },
+  { id: "zwischen-den-regentropfen-9", title: "Zwischen den Regentropfen", startDate: "2027-09-17", startTime: "20:00", location: "Trafohalle, Therwilerstrasse 56, 4103 Bottmingen" },
+  { id: "zwischen-den-regentropfen-10", title: "Zwischen den Regentropfen", startDate: "2027-11-05", startTime: "20:00", location: "Kultur.Keller Stettfurt, Dorfstrasse 2" },
 ];
