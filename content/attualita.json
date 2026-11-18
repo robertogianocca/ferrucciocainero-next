@@ -297,6 +297,15 @@
             "text": "È disponibile sul podcast della RSI Rete Due un mio radiodramma dal titolo «La rivolta del 4». E anche «Appuntamento su FM». Adesso stiamo preparando «FM il ritorno»."
           }
         ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "MODIFICA NOTA TEST"
+          }
+        ]
       }
     ]
   }
