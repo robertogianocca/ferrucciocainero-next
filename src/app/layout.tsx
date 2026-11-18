@@ -1,7 +1,5 @@
 import type { Metadata, Viewport } from "next";
 import { Open_Sans, Quicksand } from "next/font/google";
-import Footer from "@/components/Footer";
-import Header from "@/components/Header";
 import { site } from "@/data/site";
 import "./globals.css";
 
@@ -53,21 +51,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="it"
       className={`${quicksand.variable} ${openSans.variable} antialiased`}
     >
-      <body className="bg-night">
-        <a
-          href="#content"
-          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:bg-paper focus:px-4 focus:py-2 focus:font-bold focus:text-cocoa"
-        >
-          Vai al contenuto
-        </a>
-        <div className="mx-auto flex max-w-[1024px] flex-col bg-paper md:my-5">
-          <Header />
-          <main id="content" className="flex-1 pb-10">
-            {children}
-          </main>
-          <Footer />
-        </div>
-      </body>
+      <body className="bg-night">{children}</body>
     </html>
   );
 }

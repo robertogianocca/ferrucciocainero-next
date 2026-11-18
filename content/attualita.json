@@ -1,0 +1,303 @@
+{
+  "date": "2024-07-09",
+  "doc": {
+    "type": "doc",
+    "content": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Cioè quello che sto facendo ora.",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Attualmente ho tre narrazioni in repertorio che sono unite da un filo rosso, anzi verde, diciamo rossoverde:"
+          }
+        ]
+      },
+      {
+        "type": "orderedList",
+        "attrs": {
+          "start": 1
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Acqua",
+                    "marks": [
+                      {
+                        "type": "link",
+                        "attrs": {
+                          "href": "/attivita/teatro/#acqua"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": " (auf Deutsch: "
+                  },
+                  {
+                    "type": "text",
+                    "text": "Zwischen den Regentropfen",
+                    "marks": [
+                      {
+                        "type": "link",
+                        "attrs": {
+                          "href": "/attivita/teatro/#zwischen-den-regentropfen"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": ")"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "C’era clima io!",
+                    "marks": [
+                      {
+                        "type": "link",
+                        "attrs": {
+                          "href": "/attivita/teatro/#cera-clima-io"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Pensieri vegetali",
+                    "marks": [
+                      {
+                        "type": "link",
+                        "attrs": {
+                          "href": "/attivita/teatro/#pensieri-vegetali"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Sempre attuale è la narrazione "
+          },
+          {
+            "type": "text",
+            "text": "Da Socrate a Putin",
+            "marks": [
+              {
+                "type": "link",
+                "attrs": {
+                  "href": "/attivita/teatro/#da-socrate-a-putin"
+                }
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ": 2500 anni in 80 minuti."
+          },
+          {
+            "type": "hardBreak"
+          },
+          {
+            "type": "text",
+            "text": "Auf Deutsch: Von Sokrates bis Putin – 2500 Jahre in 80 Minuten.",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Insieme a Luca Domenicali della MicroBand abbiamo lo spettacolo comico musicale, ma seriamente documentato, sulla storia del presepe dal titolo "
+          },
+          {
+            "type": "text",
+            "text": "Te piace o’ presepe",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ", auf Deutsch "
+          },
+          {
+            "type": "text",
+            "text": "Leise rieselt es nicht",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Come autore e regista della compagnia "
+          },
+          {
+            "type": "text",
+            "text": "Barabba’s Clown",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " di Arese mi piace segnalare gli spettacoli:"
+          }
+        ]
+      },
+      {
+        "type": "orderedList",
+        "attrs": {
+          "start": 1
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Piramo e Tisbe (per bambini e ragazzi)"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Fuori campo (per adolescenti e adulti)"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "L’albero mi ha parlato (per bambini e famiglie)"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Con la compagnia teatrale "
+          },
+          {
+            "type": "text",
+            "text": "Principio Attivo Teatro",
+            "marks": [
+              {
+                "type": "link",
+                "attrs": {
+                  "href": "http://www.principioattivoteatro.it"
+                }
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " stiamo preparando uno spettacolo per bambini dal titolo «Cesco Spaventapasseri amico degli uccelli». Dovrebbe venire molto bene."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "È disponibile sul podcast della RSI Rete Due un mio radiodramma dal titolo «La rivolta del 4». E anche «Appuntamento su FM». Adesso stiamo preparando «FM il ritorno»."
+          }
+        ]
+      }
+    ]
+  }
+}

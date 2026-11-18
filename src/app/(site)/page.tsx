@@ -1,7 +1,15 @@
 import Image from "next/image";
-import Link from "next/link";
+import RichText from "@/components/RichText";
 import { Container } from "@/components/Section";
+import { attualita } from "@/data/attualita";
 import { site } from "@/data/site";
+
+const dateFormat = new Intl.DateTimeFormat("it-CH", {
+  day: "numeric",
+  month: "long",
+  year: "numeric",
+  timeZone: "UTC",
+});
 
 const personJsonLd = {
   "@context": "https://schema.org",
@@ -45,7 +53,7 @@ export default function HomePage() {
       </div>
 
       <Container className="pt-8">
-        <article className="border-b-[3px] border-brand pb-6">
+        <article aria-labelledby="attualita" className="max-w-3xl">
           <p className="flex items-center gap-1.5 text-sm text-menu">
             <svg
               width="14"
@@ -59,22 +67,12 @@ export default function HomePage() {
               <circle cx="12" cy="12" r="9" />
               <path d="M12 7v5l3 2" />
             </svg>
-            <time dateTime="2024-07-09">9 luglio 2024</time>
+            <time dateTime={attualita.date}>{dateFormat.format(new Date(attualita.date))}</time>
           </p>
-          <h2 className="mt-2 text-[22px] font-light md:text-[26px]">
-            <Link href="/attualita/" className="hover:text-brand">
-              Attualità
-            </Link>
+          <h2 id="attualita" className="mb-4 mt-2 text-[22px] font-light md:text-[26px]">
+            Attualità
           </h2>
-          <p className="mt-3 text-[15px] md:text-base">
-            Cioè quello che sto facendo ora.{" "}
-            <Link
-              href="/attualita/"
-              className="font-bold text-amber-dark underline decoration-amber decoration-2 underline-offset-[3px] hover:text-brand"
-            >
-              Clicca su attualità
-            </Link>
-          </p>
+          <RichText doc={attualita.doc} />
         </article>
       </Container>
     </>

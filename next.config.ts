@@ -17,7 +17,9 @@ const nextConfig: NextConfig = {
     return [
       // Legacy WordPress URLs
       { source: "/home", destination: "/", permanent: true },
-      { source: "/2024/07/09/953", destination: "/attualita/", permanent: true },
+      { source: "/2024/07/09/953", destination: "/", permanent: true },
+      // «Attualità» moved to the home page
+      { source: "/attualita", destination: "/", permanent: true },
       { source: "/events/:slug", destination: "/calendario/", permanent: true },
       {
         source: "/wp-content/uploads/2020/04/curriculum.pdf",
