@@ -842,5 +842,12 @@
     "startDate": "2027-11-05",
     "startTime": "20:00",
     "location": "Kultur.Keller Stettfurt, Dorfstrasse 2"
+  },
+  {
+    "id": "fe2db66c-3571-4107-85d8-91bdb3f052e7",
+    "title": "Leise rieselt es nicht",
+    "startDate": "2027-12-11",
+    "location": "Vaduz, Schlösslekeller",
+    "note": "reserviert"
   }
 ]
