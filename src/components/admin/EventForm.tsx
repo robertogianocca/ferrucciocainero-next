@@ -2,8 +2,10 @@
 
 import Link from "next/link";
 import { useActionState } from "react";
-import { deleteEvent, saveEvent } from "@/app/admin/actions";
+import { saveEvent } from "@/app/admin/actions";
 import type { CalendarEvent } from "@/data/events";
+import { toSwissDate } from "@/lib/dates";
+import DeleteEventButton from "./DeleteEventButton";
 import { buttonClass, errorClass, inputClass, labelClass } from "./ui";
 
 type EventFormProps = {
@@ -45,7 +47,7 @@ export default function EventForm({ event, titles, locations }: EventFormProps) 
             <input name="startDate" type="date" required defaultValue={value("startDate")} className={inputClass} />
           </label>
           <label className={labelClass}>
-            Fino al <span className="font-normal text-menu">(solo se dura più giorni)</span>
+            Fino al <span className="text-base font-normal text-menu">(solo se dura più giorni)</span>
             <input name="endDate" type="date" defaultValue={value("endDate")} className={inputClass} />
           </label>
           <label className={labelClass}>
@@ -79,12 +81,12 @@ export default function EventForm({ event, titles, locations }: EventFormProps) 
           <textarea name="note" rows={3} maxLength={600} defaultValue={value("note")} className={inputClass} />
         </label>
 
-        <label className="flex items-start gap-2 text-sm">
+        <label className="flex items-start gap-3 text-lg">
           <input
             name="cancelled"
             type="checkbox"
             defaultChecked={state.values ? state.values.cancelled === "on" : event?.cancelled}
-            className="mt-0.5 size-4 accent-brand"
+            className="mt-1 size-5 accent-brand"
           />
           <span>
             <strong className="text-cocoa">Annullata</strong> – resta visibile sul sito, barrata
@@ -97,41 +99,21 @@ export default function EventForm({ event, titles, locations }: EventFormProps) 
           </p>
         )}
 
-        <div className="flex items-center gap-5">
+        <div className="flex items-center gap-6 pt-2">
           <button disabled={pending} className={buttonClass}>
             {pending ? "Salvataggio…" : "Salva"}
           </button>
-          <Link href="/admin/calendario/" className="text-menu underline hover:text-brand">
+          <Link href="/admin/calendario/" className="text-lg text-menu underline hover:text-brand">
             Annulla
           </Link>
         </div>
       </form>
 
-      {event && <DeleteEvent id={event.id} />}
-    </>
-  );
-}
-
-function DeleteEvent({ id }: { id: string }) {
-  const [state, action, pending] = useActionState(deleteEvent, {});
-
-  return (
-    <form
-      action={action}
-      onSubmit={(e) => {
-        if (!window.confirm("Eliminare questa data?")) e.preventDefault();
-      }}
-      className="mt-10 border-t border-black/10 pt-6"
-    >
-      <input type="hidden" name="id" value={id} />
-      {state.error && (
-        <p role="alert" className={`${errorClass} mb-3`}>
-          {state.error}
-        </p>
+      {event && (
+        <div className="mt-12 border-t border-black/10 pt-8">
+          <DeleteEventButton id={event.id} label={`${toSwissDate(event.startDate)} – ${event.title}`} />
+        </div>
       )}
-      <button disabled={pending} className="text-sm font-bold text-red-800 underline hover:text-red-600">
-        {pending ? "Eliminazione…" : "Elimina questa data"}
-      </button>
-    </form>
+    </>
   );
 }

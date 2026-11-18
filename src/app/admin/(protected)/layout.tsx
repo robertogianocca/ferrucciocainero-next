@@ -11,9 +11,9 @@ export default async function ProtectedLayout({ children }: LayoutProps<"/admin"
   return (
     <>
       <header className="border-b border-black/10">
-        <div className="mx-auto flex max-w-3xl flex-wrap items-center justify-between gap-x-6 gap-y-2 px-4 py-3">
+        <div className="mx-auto flex max-w-3xl flex-wrap items-center justify-between gap-x-6 gap-y-2 px-4 py-4">
           <AdminNav />
-          <div className="flex items-center gap-4 text-sm text-menu">
+          <div className="flex items-center gap-5 text-base text-menu">
             <Link href="/" target="_blank" className="hover:text-brand">
               Vedi sito ↗
             </Link>
@@ -24,7 +24,7 @@ export default async function ProtectedLayout({ children }: LayoutProps<"/admin"
           </div>
         </div>
       </header>
-      <main className="mx-auto max-w-3xl px-4 py-8">{children}</main>
+      <main className="mx-auto max-w-3xl px-4 py-10">{children}</main>
     </>
   );
 }

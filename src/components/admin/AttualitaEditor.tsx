@@ -78,7 +78,7 @@ function Toolbar({ editor }: { editor: Editor }) {
           // Keep the focus (and the cursor position) in the text while clicking
           onMouseDown={(e) => e.preventDefault()}
           onClick={button.run}
-          className={`min-w-9 rounded px-2.5 py-1 text-sm ${
+          className={`min-w-10 rounded px-3 py-1.5 text-base ${
             active[button.key] ? "bg-brand text-white" : "text-cocoa hover:bg-black/10"
           }`}
         >
@@ -116,7 +116,7 @@ export default function AttualitaEditor({ attualita, sha }: { attualita: Attuali
     editorProps: {
       attributes: {
         "aria-label": "Testo di Attualità",
-        class: "prose-fc min-h-72 px-4 py-3 focus:outline-none",
+        class: "prose-fc min-h-72 px-4 py-3 text-[17px] focus:outline-none",
       },
     },
     onUpdate: ({ editor }) => setDoc(JSON.stringify(editor.getJSON())),
@@ -127,18 +127,18 @@ export default function AttualitaEditor({ attualita, sha }: { attualita: Attuali
       <input type="hidden" name="sha" value={sha} />
       <input type="hidden" name="doc" value={doc} />
 
-      <label className={`${labelClass} max-w-48`}>
+      <label className={`${labelClass} max-w-56`}>
         Data
         <input name="date" type="date" required defaultValue={attualita.date} className={inputClass} />
       </label>
 
       <div>
         <p className={labelClass}>Testo</p>
-        <div className="mt-1 overflow-hidden rounded border border-black/25 focus-within:border-brand focus-within:ring-1 focus-within:ring-brand">
+        <div className="mt-1.5 overflow-hidden rounded border border-black/25 focus-within:border-brand focus-within:ring-1 focus-within:ring-brand">
           {editor && <Toolbar editor={editor} />}
           <EditorContent editor={editor} />
         </div>
-        <p className="mt-1 text-xs text-menu">
+        <p className="mt-2 text-base text-menu">
           Per un link: seleziona le parole e premi «Link». Invio = nuovo paragrafo, Maiusc+Invio = a capo.
         </p>
       </div>

@@ -12,7 +12,7 @@ export default function AdminNav() {
   const pathname = usePathname();
 
   return (
-    <nav aria-label="Backend" className="flex gap-5 font-display text-[15px] font-semibold">
+    <nav aria-label="Backend" className="flex gap-6 font-display text-lg font-semibold">
       {links.map(({ href, label }) => {
         const current = pathname.startsWith(href.slice(0, -1));
         return (

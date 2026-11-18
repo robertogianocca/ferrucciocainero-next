@@ -17,7 +17,7 @@ export default async function EditEventPage({ params }: PageProps<"/admin/calend
 
   return (
     <>
-      <h1 className="mb-6 font-display text-2xl font-semibold">Modifica data</h1>
+      <h1 className="mb-8 font-display text-3xl font-semibold">Modifica data</h1>
       <EventForm event={event} titles={titles} locations={locations} />
     </>
   );
